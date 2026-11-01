@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू के सरपंच, उप-सरपंच, वार्ड पंच, कर्मचारी और समितियाँ।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="panchayat">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="हमारी पंचायत" data-sub="जनता द्वारा चुने गए प्रतिनिधि और पंचायत टीम"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container profile">
+        <div class="profile-photo reveal"><div class="sarpanch-photo" id="sp-photo"></div></div>
+        <div class="reveal">
+          <span class="eyebrow">सरपंच</span>
+          <h2 class="profile-name" id="sp-naam"></h2>
+          <p class="profile-pad"><span id="sp-pad"></span> · <span id="sp-karyakal"></span></p>
+          <blockquote class="sandesh" id="sp-sandesh"></blockquote>
+          <h3>🎯 मेरी प्राथमिकताएँ</h3>
+          <ul class="check cols-2" id="sp-prio"></ul>
+          <div class="btn-row" id="sp-contact"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-sand">
+      <div class="container">
+        <h2 class="section-title">उप-सरपंच</h2>
+        <div class="grid grid-center" id="up-card"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">वार्ड पंच</h2>
+        <p class="section-sub">अपने वार्ड की समस्या के लिए अपने वार्ड पंच से संपर्क करें।</p>
+        <div class="grid grid-4" id="ward-list"></div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">पंचायत कर्मचारी</h2>
+        <div class="grid grid-4" id="staff-list"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <h2 class="section-title">स्थायी समितियाँ</h2>
+        <div class="table-wrap"><table class="table"><thead><tr><th>क्र.</th><th>समिति</th><th>अध्यक्ष</th></tr></thead><tbody id="samiti-list"></tbody></table></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#e9d8b8"/><rect width="800" height="230" fill="#cfe3ef"/>
+<path d="M0 230h800v20H0z" fill="#c9b48a"/>
+<g fill="#b98a5a"><rect x="40" y="130" width="120" height="100"/><path d="M30 134 100 90 170 134Z" fill="#8a5a2b"/><rect x="620" y="140" width="140" height="90"/><path d="M610 144 690 100 770 144Z" fill="#8a5a2b"/></g>
+<path d="M330 230 470 230 760 500 40 500Z" fill="#b8925f"/>
+<g fill="#8a6a40" opacity=".8"><ellipse cx="380" cy="300" rx="40" ry="10"/><ellipse cx="470" cy="360" rx="60" ry="14"/><ellipse cx="300" cy="420" rx="70" ry="16"/><ellipse cx="520" cy="450" rx="50" ry="12"/></g>
+<g fill="#7aa6c2" opacity=".75"><ellipse cx="470" cy="360" rx="44" ry="9"/><ellipse cx="300" cy="420" rx="52" ry="10"/></g>
+<g fill="#9b7b4b"><circle cx="420" cy="270" r="5"/><circle cx="360" cy="330" r="7"/><circle cx="560" cy="400" r="6"/><circle cx="250" cy="470" r="8"/></g>
+<text x="400" y="60" font-family="sans-serif" font-size="30" text-anchor="middle" fill="#6b4a2b" opacity=".6">कच्चा रास्ता</text></svg>

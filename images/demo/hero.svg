@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7b267"/><stop offset=".55" stop-color="#fbd38d"/><stop offset="1" stop-color="#fde9c4"/></linearGradient>
+<linearGradient id="d1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9b872"/><stop offset="1" stop-color="#d49a52"/></linearGradient>
+<linearGradient id="d2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a35c"/><stop offset="1" stop-color="#b97d3c"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<circle cx="1180" cy="330" r="110" fill="#fff4d6" opacity=".95"/>
+<circle cx="1180" cy="330" r="170" fill="#fff4d6" opacity=".25"/>
+<g fill="#8a5a2b" opacity=".35"><path d="M300 170q10-8 20 0q10-8 20 0" stroke="#8a5a2b" stroke-width="3" fill="none"/><path d="M380 210q8-6 16 0q8-6 16 0" stroke="#8a5a2b" stroke-width="3" fill="none"/></g>
+<path d="M0 560 Q300 470 620 540 T1200 520 T1600 500 V900 H0Z" fill="#e2b06b"/>
+<path d="M0 620 Q400 540 800 610 T1600 590 V900 H0Z" fill="url(#d1)"/>
+<!-- huts -->
+<g transform="translate(980 520)">
+<rect x="0" y="40" width="120" height="80" fill="#c98b4a"/><path d="M-12 44 60 -10 132 44Z" fill="#8a5a2b"/><rect x="48" y="70" width="26" height="50" fill="#6b3f1d"/>
+<rect x="150" y="60" width="90" height="60" fill="#d39a5a"/><path d="M140 64 195 22 250 64Z" fill="#7a4a22"/><rect x="182" y="84" width="22" height="36" fill="#6b3f1d"/>
+<circle cx="320" cy="96" r="38" fill="#c98b4a"/><path d="M276 92 320 30 364 92Z" fill="#8a5a2b"/>
+</g>
+<g transform="translate(560 560)">
+<rect x="0" y="30" width="160" height="90" fill="#efe3cf"/><rect x="-6" y="22" width="172" height="12" fill="#c96f0c"/>
+<rect x="20" y="55" width="28" height="30" fill="#7aa6c2"/><rect x="112" y="55" width="28" height="30" fill="#7aa6c2"/><rect x="66" y="60" width="28" height="60" fill="#8a1c2b"/>
+<rect x="74" y="-16" width="4" height="40" fill="#555"/><path d="M78 -16h34v8H78z" fill="#ff9933"/><path d="M78 -8h34v8H78z" fill="#fff"/><path d="M78 0h34v8H78z" fill="#138808"/>
+</g>
+<!-- khejri trees -->
+<g fill="#4b6b2f"><rect x="246" y="520" width="14" height="120" fill="#6b4a2b"/><ellipse cx="253" cy="500" rx="80" ry="46"/><ellipse cx="210" cy="520" rx="46" ry="26"/><ellipse cx="300" cy="518" rx="46" ry="28"/></g>
+<g fill="#55753a"><rect x="1430" y="540" width="12" height="100" fill="#6b4a2b"/><ellipse cx="1436" cy="525" rx="66" ry="38"/></g>
+<!-- camel -->
+<g fill="#7a4a22" transform="translate(1250 640)"><path d="M0 30q20-40 50-20q15-30 40 0q20-5 30-30q8-6 14 4q-6 20-18 40v50h-8V30q-10 10-26 12v32h-8V44q-30 4-46-2v32h-8V44q-12-4-20-14z"/></g>
+<path d="M0 720 Q500 650 1000 720 T1600 700 V900 H0Z" fill="url(#d2)"/>
+<path d="M0 800 Q600 740 1200 800 T1600 790 V900 H0Z" fill="#a86d32"/>
+</svg>

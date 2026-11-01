@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू का बजट — आय, व्यय, विकास कार्यों पर खर्च और सूचना का अधिकार।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="bajat">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="बजट व पारदर्शिता" data-sub="पंचायत का पैसा — कहाँ से आया, कहाँ खर्च हुआ"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <p class="center"><span class="pill" id="b-year"></span></p>
+        <div class="stats stats-4" id="b-stats"></div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container grid grid-2">
+        <div class="card chart-card reveal"><h3>📥 राशि कहाँ से आई</h3><div id="b-aay"></div></div>
+        <div class="card chart-card reveal"><h3>📤 राशि कहाँ खर्च हुई</h3><div id="b-vyay"></div></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">विकास कार्यों पर खर्च</h2>
+        <div class="table-wrap"><table class="table register"><thead><tr><th>कार्य</th><th>योजना / मद</th><th>लागत</th><th>स्थिति</th></tr></thead><tbody id="b-works"></tbody></table></div>
+      </div>
+    </section>
+    <section class="section section-sand">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title left">सूचना का अधिकार (RTI)</h2>
+          <p>पंचायत से जुड़ी कोई भी जानकारी आप सूचना का अधिकार अधिनियम, 2005 के तहत माँग सकते हैं।</p>
+          <dl class="facts" id="rti"></dl>
+        </div>
+        <div class="card info-card reveal">
+          <h3>🔎 ऑनलाइन देखें</h3>
+          <p>पंचायत की कार्य योजना, खर्च और ऑडिट रिपोर्ट भारत सरकार के ई-ग्रामस्वराज पोर्टल पर भी देखी जा सकती है।</p>
+          <a class="btn btn-outline" href="https://egramswaraj.gov.in/" target="_blank" rel="noopener">ई-ग्रामस्वराज ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

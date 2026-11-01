@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू — शिकायत दर्ज करें, शिकायत की स्थिति देखें, सार्वजनिक शिकायत रजिस्टर।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="shikayat">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="शिकायत निवारण" data-sub="शिकायत दर्ज करें · स्थिति देखें · पूरा रिकॉर्ड पारदर्शी"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="stats stats-6" id="c-stats"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="darj">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">चरण 1</span>
+          <h2 class="section-title left">नई शिकायत दर्ज करें</h2>
+          <form class="card form" id="shikayat-form">
+            <div class="form-row">
+              <label>आपका नाम *<input name="naam" required autocomplete="name"></label>
+              <label>मोबाइल नंबर *<input name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" placeholder="10 अंकों का नंबर" required></label>
+            </div>
+            <div class="form-row">
+              <label>वार्ड *<select name="ward" id="f-ward" required></select></label>
+              <label>विभाग / समस्या का प्रकार *<select name="vibhag" id="f-vibhag" required></select></label>
+            </div>
+            <label>स्थान / पहचान चिह्न<input name="sthan" placeholder="जैसे: मंदिर के पास वाली गली"></label>
+            <label>समस्या का विवरण *<textarea name="vivaran" rows="4" required placeholder="अपनी समस्या विस्तार से लिखें…"></textarea></label>
+            <label class="check-label"><input type="checkbox" required> मैं पुष्टि करता/करती हूँ कि दी गई जानकारी सही है।</label>
+            <button type="submit" class="btn btn-primary btn-lg">शिकायत दर्ज करें →</button>
+            <p class="small muted">🔒 आपका नाम और मोबाइल नंबर सार्वजनिक रजिस्टर में नहीं दिखाया जाएगा।</p>
+          </form>
+          <div id="form-result" aria-live="polite"></div>
+        </div>
+        <div id="track">
+          <span class="eyebrow">चरण 2</span>
+          <h2 class="section-title left">शिकायत की स्थिति देखें</h2>
+          <form class="card track-form" id="track-form">
+            <label for="track-input">शिकायत संख्या डालें</label>
+            <div class="input-group"><input id="track-input" placeholder="जैसे SJ-2610-0011" autocomplete="off"><button class="btn btn-primary" type="submit">देखें</button></div>
+          </form>
+          <div id="track-result" aria-live="polite"></div>
+          <div class="card my-complaints" id="my-complaints" hidden>
+            <h3>📱 आपकी शिकायतें (इस फ़ोन से)</h3>
+            <ul id="my-list"></ul>
+          </div>
+          <div class="card how reveal">
+            <h3>⏱️ शिकायत कैसे निपटाई जाती है</h3>
+            <ol class="timeline static">
+              <li class="done"><strong>दर्ज</strong><span>आपको शिकायत संख्या मिलती है</span></li>
+              <li class="done"><strong>प्रगति पर</strong><span>संबंधित कर्मचारी को सौंपी जाती है</span></li>
+              <li class="done"><strong>समाधान</strong><span>लक्ष्य: 7 दिन के भीतर</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">गाँव की समस्याएँ</span>
+          <h2 class="section-title">किस तरह की कितनी शिकायतें</h2>
+        </div>
+        <div class="card chart-card reveal" id="c-chart"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="register">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">पूरी पारदर्शिता</span>
+          <h2 class="section-title">सार्वजनिक शिकायत रजिस्टर</h2>
+          <p class="section-sub">हर शिकायत — कब दर्ज हुई, कब हल हुई और कितने दिन लगे।</p>
+        </div>
+        <div class="toolbar">
+          <div class="filters" id="r-status"></div>
+          <div class="toolbar-right">
+            <select id="r-vibhag" aria-label="विभाग"></select>
+            <select id="r-ward" aria-label="वार्ड"></select>
+            <label class="search sm"><span aria-hidden="true">🔍</span><input type="search" id="r-search" placeholder="खोजें…" aria-label="शिकायत खोजें"></label>
+          </div>
+        </div>
+        <p class="muted small" id="r-count"></p>
+        <div class="table-wrap"><table class="table register">
+          <thead><tr><th>शिकायत सं.</th><th>दर्ज तिथि</th><th>वार्ड</th><th>विभाग</th><th>समस्या</th><th>स्थिति</th><th>समाधान तिथि</th><th>लगे दिन</th></tr></thead>
+          <tbody id="r-body"></tbody>
+        </table></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

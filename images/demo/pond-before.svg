@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#e2c999"/><rect width="800" height="200" fill="#f3dcb0"/>
+<ellipse cx="400" cy="330" rx="330" ry="120" fill="#c9a66b"/>
+<ellipse cx="400" cy="340" rx="200" ry="60" fill="#8f8a5a" opacity=".8"/>
+<g stroke="#a07a45" stroke-width="3" fill="none"><path d="M200 320l30 10 20-15M480 300l25 15 30-5M350 390l20-10 30 12M560 360l25 10"/></g>
+<g fill="#6f7b3a"><path d="M150 260l8-30 6 30zM170 262l6-24 6 24zM630 270l8-28 6 28z"/></g>
+<g fill="#8a6a40"><circle cx="300" cy="420" r="9"/><circle cx="520" cy="430" r="7"/></g>
+<text x="400" y="80" font-family="sans-serif" font-size="30" text-anchor="middle" fill="#6b4a2b" opacity=".6">सूखा, उथला तालाब</text></svg>

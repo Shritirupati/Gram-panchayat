@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम सांजू का परिचय, इतिहास, आँकड़े, सुविधाएँ और उपलब्धियाँ।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="parichay">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="गाँव परिचय" data-sub="सांजू — हमारी पहचान, हमारा गौरव"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container about-grid">
+        <div class="reveal">
+          <span class="eyebrow">हमारा गाँव</span>
+          <h2 class="section-title left">एक नज़र में</h2>
+          <p class="lead-left" id="p-intro"></p>
+          <dl class="facts" id="p-facts"></dl>
+        </div>
+        <div class="about-image reveal" id="p-image"></div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">गाँव के आँकड़े</h2>
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container grid grid-2">
+        <article class="card info-card reveal"><h3>📜 इतिहास व संस्कृति</h3><p id="p-itihas"></p></article>
+        <article class="card info-card reveal"><h3>🏜️ भूगोल व जलवायु</h3><p id="p-bhugol"></p></article>
+      </div>
+    </section>
+    <section class="section section-sand">
+      <div class="container">
+        <h2 class="section-title">गाँव में उपलब्ध सुविधाएँ</h2>
+        <div class="grid grid-3" id="p-suvidha"></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title left">उपलब्धियाँ</h2>
+          <ol class="tl" id="p-uplabdhi"></ol>
+        </div>
+        <div>
+          <h2 class="section-title left">नक्शा</h2>
+          <div class="map" id="p-map"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

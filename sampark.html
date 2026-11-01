@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू से संपर्क करें — पता, फ़ोन, WhatsApp, ईमेल, कार्यालय समय।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="sampark">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="संपर्क करें" data-sub="हम आपकी सेवा में हमेशा तत्पर हैं"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3" id="contact-cards"></div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title left">संदेश भेजें</h2>
+          <form class="card form" id="contact-form">
+            <div class="form-row">
+              <label>आपका नाम *<input name="naam" required></label>
+              <label>मोबाइल नंबर *<input name="mobile" type="tel" pattern="[0-9]{10}" required></label>
+            </div>
+            <label>संदेश / सुझाव *<textarea name="sandesh" rows="5" required></textarea></label>
+            <button class="btn btn-primary" type="submit">WhatsApp पर भेजें</button>
+          </form>
+        </div>
+        <div>
+          <h2 class="section-title left">पंचायत भवन का नक्शा</h2>
+          <div class="map" id="map"></div>
+        </div>
+      </div>
+    </section>
+    <section class="helpline-band">
+      <div class="container">
+        <h2>🚨 आपातकालीन व हेल्पलाइन नंबर</h2>
+        <div class="helplines" id="number-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>

@@ -3,177 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ग्राम पंचायत</title>
-  <meta name="description" content="ग्राम पंचायत की आधिकारिक वेबसाइट — सरपंच संदेश, योजनाएँ, विकास कार्य, सूचनाएँ और संपर्क।">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू, ज़िला नागौर (राजस्थान) की आधिकारिक वेबसाइट — योजनाएँ, विकास कार्य, शिकायत, सूचनाएँ और पारदर्शिता।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <div class="tiranga" aria-hidden="true"><span></span><span></span><span></span></div>
-
-  <header class="header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="brand">
-        <span class="brand-logo" aria-hidden="true">🏛️</span>
-        <span>
-          <strong>ग्राम पंचायत <span data-field="gaon.naam"></span></strong>
-          <small>तहसील <span data-field="gaon.tehsil"></span>, ज़िला <span data-field="gaon.zila"></span></small>
-        </span>
-      </a>
-      <button class="menu-btn" aria-label="मेन्यू खोलें" aria-expanded="false">☰</button>
-      <nav class="nav">
-        <a href="#parichay">परिचय</a>
-        <a href="#sarpanch">सरपंच</a>
-        <a href="#sadasya">पंचायत</a>
-        <a href="#yojanayen">योजनाएँ</a>
-        <a href="#vikas">विकास कार्य</a>
-        <a href="#suchna">सूचनाएँ</a>
-        <a href="#gallery">गैलरी</a>
-        <a href="#shikayat" class="nav-cta">शिकायत / सुझाव</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero" id="hero">
-    <div class="container hero-inner">
-      <p class="hero-kicker">आपका स्वागत है</p>
-      <h1>ग्राम पंचायत <span data-field="gaon.naam"></span></h1>
-      <p class="hero-tagline" data-field="gaon.tagline"></p>
-      <div class="hero-actions">
-        <a href="#yojanayen" class="btn btn-primary">सरकारी योजनाएँ</a>
-        <a href="#shikayat" class="btn btn-light">शिकायत दर्ज करें</a>
-      </div>
-    </div>
-  </section>
+<body data-page="home">
+  <div id="site-header"></div>
 
   <div class="ticker" aria-label="ताज़ा सूचनाएँ">
     <div class="container ticker-inner">
-      <span class="ticker-label">ताज़ा सूचना</span>
+      <span class="ticker-label">📢 ताज़ा सूचना</span>
       <div class="ticker-track"><div class="ticker-move" id="ticker"></div></div>
     </div>
   </div>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-kicker">🙏 राम राम सा, आपका स्वागत है</p>
+        <h1 id="hero-title"></h1>
+        <p class="hero-tag" id="hero-tag"></p>
+        <p class="hero-loc" id="hero-loc"></p>
+        <div class="hero-actions">
+          <a href="shikayat.html" class="btn btn-primary btn-lg">📝 शिकायत दर्ज करें</a>
+          <a href="shikayat.html#track" class="btn btn-glass btn-lg">🔍 शिकायत की स्थिति</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 40c240 40 480 40 720 0s480-40 720 0v40H0z" fill="#fff"/></svg></div>
+  </section>
 
-  <main>
-    <section class="section" id="parichay">
+
+  <main id="main">
+    <section class="section quick-section">
       <div class="container">
-        <h2 class="section-title">गाँव का परिचय</h2>
-        <p class="lead" data-field="gaon.parichay"></p>
+        <div class="quick-grid">
+          <a href="shikayat.html" class="quick reveal"><span class="q-icon">📝</span><strong>शिकायत दर्ज करें</strong><small>समस्या बताएँ, नंबर पाएँ</small></a>
+          <a href="shikayat.html#track" class="quick reveal"><span class="q-icon">🔍</span><strong>शिकायत ट्रैक करें</strong><small>कब दर्ज, कब हल</small></a>
+          <a href="yojana.html" class="quick reveal"><span class="q-icon">🏛️</span><strong>सरकारी योजनाएँ</strong><small>पात्रता व दस्तावेज़</small></a>
+          <a href="sevayen.html" class="quick reveal"><span class="q-icon">📄</span><strong>प्रमाण पत्र</strong><small>जन्म, मृत्यु, विवाह…</small></a>
+          <a href="vikas.html" class="quick reveal"><span class="q-icon">🏗️</span><strong>विकास कार्य</strong><small>पहले और बाद</small></a>
+          <a href="bajat.html" class="quick reveal"><span class="q-icon">📊</span><strong>बजट व खर्च</strong><small>पूरी पारदर्शिता</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container about-grid">
+        <div class="reveal">
+          <span class="eyebrow">हमारा गाँव</span>
+          <h2 class="section-title left">गाँव का परिचय</h2>
+          <p class="lead-left" id="about-text"></p>
+          <a href="parichay.html" class="btn btn-outline">और जानें →</a>
+        </div>
         <div class="stats" id="stats"></div>
       </div>
     </section>
 
-    <section class="section section-alt" id="sarpanch">
-      <div class="container sarpanch">
-        <div class="sarpanch-photo" id="sarpanch-photo"></div>
-        <div>
-          <h2 class="section-title left">सरपंच का संदेश</h2>
-          <blockquote class="sandesh" data-field="sarpanch.sandesh"></blockquote>
-          <p class="sarpanch-naam"><strong data-field="sarpanch.naam"></strong><br><span data-field="sarpanch.pad"></span></p>
+    <section class="section section-sand">
+      <div class="container sarpanch-feature">
+        <div class="sarpanch-photo reveal" id="home-sarpanch-photo"></div>
+        <div class="reveal">
+          <span class="eyebrow">सरपंच का संदेश</span>
+          <blockquote class="sandesh" id="home-sandesh"></blockquote>
+          <p class="sarpanch-sign"><strong id="home-sarpanch-naam"></strong><span id="home-sarpanch-pad"></span></p>
+          <div id="home-upsarpanch"></div>
+          <a href="panchayat.html" class="btn btn-primary">पंचायत टीम से मिलें →</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="sadasya">
+    <section class="section">
       <div class="container">
-        <h2 class="section-title">पंचायत के सदस्य</h2>
-        <div class="grid grid-4" id="sadasya-list"></div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="yojanayen">
-      <div class="container">
-        <h2 class="section-title">सरकारी योजनाएँ</h2>
-        <p class="section-sub">इन योजनाओं का लाभ लेने के लिए पंचायत कार्यालय में संपर्क करें।</p>
-        <div class="grid grid-4" id="yojana-list"></div>
-      </div>
-    </section>
-
-    <section class="section" id="vikas">
-      <div class="container">
-        <h2 class="section-title">विकास कार्य</h2>
-        <div class="filters" id="vikas-filters">
-          <button class="chip active" data-filter="सभी">सभी</button>
-          <button class="chip" data-filter="पूर्ण">पूर्ण</button>
-          <button class="chip" data-filter="प्रगति पर">प्रगति पर</button>
-          <button class="chip" data-filter="प्रस्तावित">प्रस्तावित</button>
+        <div class="section-head">
+          <span class="eyebrow">बदलता सांजू</span>
+          <h2 class="section-title">विकास कार्य — पहले और बाद</h2>
+          <p class="section-sub">स्लाइडर को खिसकाकर देखें कि काम से पहले और बाद में क्या बदलाव आया।</p>
         </div>
-        <div class="grid grid-3" id="vikas-list"></div>
+        <div class="ba-grid" id="home-ba"></div>
+        <div class="works-summary">
+          <div class="stats stats-3" id="home-work-stats"></div>
+          <div class="card ongoing reveal"><h3>🚧 चल रहे कार्य</h3><ul id="home-ongoing"></ul><a href="vikas.html" class="link-btn">सभी विकास कार्य देखें →</a></div>
+        </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="suchna">
+    <section class="section section-green">
+      <div class="container complaint-band">
+        <div class="reveal">
+          <span class="eyebrow light">जवाबदेह पंचायत</span>
+          <h2 class="section-title left light">शिकायत निवारण डैशबोर्ड</h2>
+          <p>हर शिकायत का रिकॉर्ड — कब दर्ज हुई, कब हल हुई, कितने दिन लगे। पूरी जानकारी सबके सामने।</p>
+          <div class="hero-actions left">
+            <a href="shikayat.html" class="btn btn-primary">शिकायत दर्ज करें</a>
+            <a href="shikayat.html#register" class="btn btn-glass">शिकायत रजिस्टर देखें</a>
+          </div>
+        </div>
+        <div class="complaint-dash">
+          <div class="rate-ring reveal" style="--p:0"><div><strong id="home-rate">0%</strong><span>समाधान दर</span></div></div>
+          <div class="stats stats-2" id="home-complaint-stats"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="container two-col">
         <div>
-          <h2 class="section-title left">सूचना पट</h2>
-          <ul class="notices" id="suchna-list"></ul>
+          <div class="row-head"><h2 class="section-title left">सूचना पट</h2><a href="suchna.html" class="link-btn">सभी सूचनाएँ →</a></div>
+          <div class="notices" id="home-notices"></div>
         </div>
-        <aside class="card numbers">
-          <h3>📞 ज़रूरी नंबर</h3>
-          <ul id="number-list"></ul>
+        <aside class="card events-card reveal">
+          <h3>📅 आगामी कार्यक्रम</h3>
+          <ul class="events" id="home-events"></ul>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="gallery">
+    <section class="section section-alt">
       <div class="container">
-        <h2 class="section-title">फ़ोटो गैलरी</h2>
-        <div class="gallery" id="gallery-list"></div>
+        <div class="section-head">
+          <span class="eyebrow">लाभ उठाएँ</span>
+          <h2 class="section-title">प्रमुख सरकारी योजनाएँ</h2>
+        </div>
+        <div class="grid grid-4" id="home-schemes"></div>
+        <p class="center"><a href="yojana.html" class="btn btn-outline">सभी योजनाएँ देखें →</a></p>
       </div>
     </section>
 
-    <section class="section section-alt" id="shikayat">
-      <div class="container two-col">
-        <div>
-          <h2 class="section-title left">शिकायत / सुझाव</h2>
-          <p>अपनी समस्या या सुझाव नीचे लिखें। "भेजें" दबाने पर संदेश सीधे पंचायत के WhatsApp पर चला जाएगा।</p>
-          <form class="card form" id="shikayat-form">
-            <label>आपका नाम *<input name="naam" required></label>
-            <label>मोबाइल नंबर *<input name="mobile" type="tel" pattern="[0-9]{10}" placeholder="10 अंकों का नंबर" required></label>
-            <label>वार्ड नंबर<input name="ward" placeholder="जैसे 3"></label>
-            <label>विषय *
-              <select name="vishay" required>
-                <option value="">— चुनें —</option>
-                <option>सड़क / रास्ता</option>
-                <option>पानी</option>
-                <option>बिजली / स्ट्रीट लाइट</option>
-                <option>सफ़ाई / नाली</option>
-                <option>राशन / पेंशन</option>
-                <option>आवास योजना</option>
-                <option>मनरेगा</option>
-                <option>सुझाव</option>
-                <option>अन्य</option>
-              </select>
-            </label>
-            <label>विवरण *<textarea name="vivaran" rows="4" required></textarea></label>
-            <button type="submit" class="btn btn-primary">WhatsApp पर भेजें</button>
-          </form>
-        </div>
-        <div>
-          <h2 class="section-title left">संपर्क करें</h2>
-          <div class="card contact">
-            <p>📍 <span data-field="sampark.pata"></span></p>
-            <p>📞 <a id="phone-link"></a></p>
-            <p>✉️ <a id="email-link"></a></p>
-            <p>🕘 <span data-field="sampark.samay"></span></p>
-          </div>
-          <div class="map" id="map"></div>
-        </div>
+    <section class="section">
+      <div class="container">
+        <div class="row-head"><h2 class="section-title left">फ़ोटो गैलरी</h2><a href="gallery.html" class="link-btn">पूरी गैलरी →</a></div>
+        <div class="gallery" id="home-gallery"></div>
+      </div>
+    </section>
+
+    <section class="helpline-band">
+      <div class="container">
+        <h2>🚨 आपातकालीन व हेल्पलाइन नंबर</h2>
+        <div class="helplines" id="home-helplines"></div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> ग्राम पंचायत <span data-field="gaon.naam"></span>, ज़िला <span data-field="gaon.zila"></span>, <span data-field="gaon.rajya"></span></p>
-      <p><a href="https://egramswaraj.gov.in/" target="_blank" rel="noopener">ई-ग्रामस्वराज</a> · <a href="https://www.india.gov.in/" target="_blank" rel="noopener">भारत सरकार</a> · <a href="#top">ऊपर जाएँ ↑</a></p>
-    </div>
-  </footer>
-
-  <a class="wa-float" id="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp पर संपर्क करें">💬</a>
-
+  <div id="site-footer"></div>
   <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
 </body>
 </html>
