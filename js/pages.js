@@ -3,6 +3,7 @@
   "use strict";
   var S = window.SITE, U = window.U, G = S.gaon;
   var esc = U.esc, $ = U.$, $$ = U.$$;
+  var NOTICES = U.notices();
   var TODAY = new Date(); TODAY.setHours(0, 0, 0, 0);
   var TODAY_ISO = TODAY.getFullYear() + "-" + String(TODAY.getMonth() + 1).padStart(2, "0") + "-" + String(TODAY.getDate()).padStart(2, "0");
 
@@ -33,10 +34,11 @@
     });
   }
   function loadComplaints(cb) {
-    if (!S.shikayatSheetCsv) return cb(S.shikayatein.slice());
+    function done(base) { cb(U.merged("shikayat", base), base); }
+    if (!S.shikayatSheetCsv) return done(S.shikayatein.slice());
     fetch(S.shikayatSheetCsv).then(function (r) { return r.text(); })
-      .then(function (t) { cb(parseCSV(t)); })
-      .catch(function () { cb(S.shikayatein.slice()); });
+      .then(function (t) { done(parseCSV(t)); })
+      .catch(function () { done(S.shikayatein.slice()); });
   }
   function complaintStats(list) {
     var s = { total: list.length, ok: 0, warn: 0, info: 0, days: [] };
@@ -170,7 +172,7 @@
     set("hero-tag", esc(G.tagline));
     set("hero-loc", "📍 तहसील " + esc(G.tehsil) + ", ज़िला " + esc(G.zila) + ", " + esc(G.rajya) + " – " + esc(G.pincode));
 
-    var tick = S.suchnayen.map(function (n) { return "<span>📢 " + esc(n.shirshak) + " — " + U.date(n.tarikh) + "</span>"; }).join("");
+    var tick = NOTICES.map(function (n) { return "<span>📢 " + esc(n.shirshak) + " — " + U.date(n.tarikh) + "</span>"; }).join("");
     set("ticker", tick + tick);
 
     set("about-text", esc(G.parichay));
@@ -202,7 +204,7 @@
       { icon: "💰", value: U.rupees(S.vikasKarya.reduce(function (a, v) { return a + v.lagat; }, 0)), label: "कुल विकास राशि" }
     ]));
 
-    set("home-notices", S.suchnayen.slice(0, 4).map(noticeItem).join(""));
+    set("home-notices", NOTICES.slice(0, 4).map(noticeItem).join(""));
     set("home-events", S.karyakram.filter(function (k) { return isUpcoming(k.tarikh); }).slice(0, 4).map(eventItem).join("") ||
       '<li class="empty">अभी कोई आगामी कार्यक्रम नहीं है।</li>');
 
@@ -353,16 +355,17 @@
       var mine = myComplaints();
       mine.unshift({ id: id, darj: iso, ward: f.get("ward"), vibhag: f.get("vibhag"), vishay: String(f.get("vivaran")).slice(0, 80), sthiti: "दर्ज" });
       localStorage.setItem("gp-meri-shikayat", JSON.stringify(mine.slice(0, 20)));
+      setTimeout(function () { document.dispatchEvent(new Event("gp-complaint-added")); }, 0);
+      U.addRecord("shikayat", { id: id, darj: iso, ward: f.get("ward"), vibhag: f.get("vibhag"), vishay: String(f.get("vivaran")), sthan: f.get("sthan"), sthiti: "दर्ज", hal: "", tippani: "", naam: f.get("naam"), mobile: f.get("mobile") });
       var wa = U.waLink(msg);
-      set("form-result", '<div class="success-box"><div class="success-icon">✅</div><h3>आपकी शिकायत तैयार है</h3>' +
+      set("form-result", '<div class="success-box"><div class="success-icon">✅</div><h3>आपकी शिकायत दर्ज हो गई है</h3>' +
         '<p>आपकी शिकायत संख्या:</p><div class="complaint-id">' + id + '</div>' +
         '<p class="small">इस नंबर को सँभाल कर रखें — इससे आप शिकायत की स्थिति देख सकते हैं।</p>' +
-        '<a class="btn btn-whatsapp" href="' + wa + '" target="_blank" rel="noopener">WhatsApp पर भेजें</a>' +
-        '<p class="small">ज़रूरी: शिकायत तभी दर्ज होगी जब आप WhatsApp पर संदेश भेज देंगे। फ़ोटो हो तो वहीं साथ में भेज दें।</p>' +
+        '<div class="btn-row center-row"><a class="btn btn-primary" href="#track" data-track="' + id + '">स्थिति देखें</a><a class="btn btn-whatsapp" href="' + wa + '" target="_blank" rel="noopener">WhatsApp पर भी भेजें</a></div>' +
+        '<p class="small">शिकायत पंचायत के ऑनलाइन रजिस्टर में दर्ज हो गई है। चाहें तो फ़ोटो के साथ WhatsApp पर भी भेज सकते हैं।</p>' +
         '<button type="button" class="link-btn" id="new-complaint">+ नई शिकायत लिखें</button></div>');
       form.hidden = true;
       document.getElementById("form-result").scrollIntoView({ behavior: "smooth", block: "center" });
-      window.open(wa, "_blank");
       renderMine();
       document.getElementById("new-complaint").addEventListener("click", function () {
         form.reset(); form.hidden = false; set("form-result", "");
@@ -379,8 +382,12 @@
     }
     renderMine();
 
-    loadComplaints(function (list) {
-      // आँकड़े
+    loadComplaints(function (list, base) {
+      document.addEventListener("gp-complaint-added", function () {
+        list = U.merged("shikayat", base);
+        renderStats(); renderRegister(); window.revealAll();
+      });
+      function renderStats() {
       var s = complaintStats(list);
       set("c-stats", statTiles([
         { icon: "📝", value: s.total, label: "कुल शिकायतें" },
@@ -396,8 +403,10 @@
       list.forEach(function (c) { counts[c.vibhag] = (counts[c.vibhag] || 0) + 1; });
       var items = Object.keys(counts).map(function (k) { return { label: k, value: counts[k] }; })
         .sort(function (a, b) { return b.value - a.value; });
-      var ch = set("c-chart", barChart(items, function (v) { return v + " शिकायत"; }, "शिकायतें"));
-      bindTooltips(ch);
+      set("c-chart", barChart(items, function (v) { return v + " शिकायत"; }, "शिकायतें"));
+      }
+      renderStats();
+      bindTooltips(document.getElementById("c-chart"));
 
       // ट्रैकिंग
       function track(id) {
@@ -406,7 +415,6 @@
         document.getElementById("track-input").value = id;
         var c = list.filter(function (x) { return String(x.id).toUpperCase() === id; })[0];
         var local = false;
-        if (!c) { c = myComplaints().filter(function (x) { return x.id === id; })[0]; local = !!c; }
         if (!c) {
           set("track-result", '<div class="alert">❌ शिकायत संख्या <strong>' + esc(id) + "</strong> नहीं मिली। नंबर जाँचें या पंचायत कार्यालय से संपर्क करें।</div>");
           return;
@@ -471,9 +479,9 @@
   };
 
   PAGES.suchna = function () {
-    var list = set("suchna-list", S.suchnayen.map(noticeItem).join(""));
-    U.chips(document.getElementById("suchna-cats"), U.unique(S.suchnayen.map(function (n) { return n.shreni; })), function (v) {
-      $$(".notice", list).forEach(function (el, i) { el.hidden = v && S.suchnayen[i].shreni !== v; });
+    var list = set("suchna-list", NOTICES.map(noticeItem).join(""));
+    U.chips(document.getElementById("suchna-cats"), U.unique(NOTICES.map(function (n) { return n.shreni; })), function (v) {
+      $$(".notice", list).forEach(function (el, i) { el.hidden = v && NOTICES[i].shreni !== v; });
     });
     set("event-list", S.karyakram.filter(function (k) { return isUpcoming(k.tarikh); }).map(eventItem).join("") || '<li class="empty">अभी कोई आगामी कार्यक्रम नहीं है।</li>');
   };
@@ -532,6 +540,10 @@
       window.open(U.waLink("*ग्राम पंचायत " + G.naam + " — संदेश*\n\nनाम: " + f.get("naam") + "\nमोबाइल: " + f.get("mobile") + "\n\n" + f.get("sandesh")), "_blank");
     });
   };
+
+  window.GP = { set: set, statTiles: statTiles, personCard: personCard, noticeItem: noticeItem, eventItem: eventItem,
+    barChart: barChart, bindTooltips: bindTooltips, galleryItem: galleryItem, bindGallery: bindGallery,
+    isNew: isNew, isUpcoming: isUpcoming, complaintStats: complaintStats, loadComplaints: loadComplaints };
 
   var page = document.body.getAttribute("data-page");
   if (PAGES[page]) PAGES[page]();

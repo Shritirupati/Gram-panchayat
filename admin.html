@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू — पंचायत लॉगिन (डेमो)।">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="admin">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="पंचायत लॉगिन" data-sub="केवल पंचायत कर्मचारियों के लिए"></section>
+
+  <main id="main">
+    <section class="section section-alt">
+      <div class="container">
+        <div id="admin-login" class="login-wrap">
+          <form class="card form login" id="login-form">
+            <div class="login-head"><span>🔐</span><h2>पंचायत एडमिन लॉगिन</h2></div>
+            <label>यूज़र नाम<input name="user" required autocomplete="username"></label>
+            <label>पासवर्ड<input name="pass" type="password" required autocomplete="current-password"></label>
+            <p class="alert-text" id="login-err" aria-live="polite"></p>
+            <button class="btn btn-primary btn-lg" type="submit">लॉगिन करें</button>
+            <div class="callout small">🧪 <strong>डेमो लॉगिन:</strong> <span id="demo-cred"></span></div>
+          </form>
+        </div>
+        <div id="admin-dash" hidden>
+          <div class="row-head"><h2 class="section-title left">एडमिन डैशबोर्ड</h2>
+            <div class="btn-row" style="margin:0"><button type="button" class="btn btn-outline" id="reset-demo">↺ डेमो डेटा रीसेट</button><button type="button" class="btn btn-primary" id="logout">लॉगआउट</button></div></div>
+          <div class="stats stats-6" id="ad-stats"></div>
+          <div class="tabs" id="admin-tabs" role="tablist">
+            <button type="button" class="tab active" data-tab="c" role="tab" aria-selected="true">📝 शिकायतें</button>
+            <button type="button" class="tab" data-tab="a" role="tab" aria-selected="false">🖊️ आवेदन</button>
+            <button type="button" class="tab" data-tab="n" role="tab" aria-selected="false">📢 सूचना जोड़ें</button>
+            <button type="button" class="tab" data-tab="p" role="tab" aria-selected="false">🗳️ सर्वे नतीजे</button>
+          </div>
+          <div class="tab-panel" id="tab-c">
+            <p class="muted small">स्थिति बदलते ही नागरिक की ट्रैकिंग और सार्वजनिक रजिस्टर में अपडेट हो जाता है।</p>
+            <div class="table-wrap"><table class="table register admin-table"><thead><tr><th>संख्या</th><th>दर्ज</th><th>वार्ड / विभाग</th><th>समस्या</th><th>स्थिति</th><th>टिप्पणी</th></tr></thead><tbody id="ad-complaints"></tbody></table></div>
+          </div>
+          <div class="tab-panel" id="tab-a" hidden>
+            <div class="table-wrap"><table class="table register admin-table"><thead><tr><th>संख्या</th><th>सेवा</th><th>तिथि</th><th>वार्ड</th><th>स्थिति</th><th>टिप्पणी</th></tr></thead><tbody id="ad-apps"></tbody></table></div>
+          </div>
+          <div class="tab-panel two-col" id="tab-n" hidden>
+            <form class="card form" id="notice-form">
+              <h3>📢 नई सूचना प्रकाशित करें</h3>
+              <label>शीर्षक *<input name="shirshak" required></label>
+              <div class="form-row">
+                <label>श्रेणी<select name="shreni"><option>सामान्य</option><option>ग्राम सभा</option><option>शिविर</option><option>निविदा</option><option>भर्ती</option></select></label>
+                <label>तिथि<input name="tarikh" type="date" required></label>
+              </div>
+              <label>विवरण *<textarea name="vivaran" rows="3" required></textarea></label>
+              <button class="btn btn-primary" type="submit">प्रकाशित करें</button>
+            </form>
+            <div class="card"><h3>आपके द्वारा जोड़ी गई सूचनाएँ</h3><ul class="plain-list" id="ad-notices"></ul></div>
+          </div>
+          <div class="tab-panel" id="tab-p" hidden><div class="card chart-card" id="ad-polls"></div></div>
+          <div class="callout small">🧪 <strong>डेमो:</strong> यहाँ किए गए बदलाव सिर्फ़ इसी ब्राउज़र में सेव होते हैं। असली वेबसाइट में ये ऑनलाइन डेटाबेस में सेव होंगे और सबको दिखेंगे।</div>
+        </div>
+      </div>
+    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/pages2.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू — ऑनलाइन आवेदन करें और आवेदन की स्थिति देखें।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="aavedan">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="ऑनलाइन आवेदन" data-sub="घर बैठे आवेदन करें · आवेदन संख्या से स्थिति देखें"></section>
+
+  <main id="main">
+    <section class="section section-alt">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">नया आवेदन</span>
+          <h2 class="section-title left">आवेदन फ़ॉर्म</h2>
+          <form class="card form" id="av-form">
+            <label>सेवा चुनें *<select name="seva" id="av-seva" required></select></label>
+            <div id="av-docs"></div>
+            <div class="form-row">
+              <label>आवेदक का नाम *<input name="naam" required></label>
+              <label>पिता / पति का नाम *<input name="pita" required></label>
+            </div>
+            <div class="form-row">
+              <label>मोबाइल नंबर *<input name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" required placeholder="10 अंकों का नंबर"></label>
+              <label>वार्ड *<select name="ward" id="av-ward" required></select></label>
+            </div>
+            <label>जन आधार संख्या<input name="janaadhaar" inputmode="numeric" placeholder="वैकल्पिक"></label>
+            <label>विवरण *<textarea name="vivaran" rows="3" required placeholder="जैसे: बच्चे का नाम, जन्म तिथि, अस्पताल…"></textarea></label>
+            <label class="check-label"><input type="checkbox" required> मैं घोषणा करता/करती हूँ कि दी गई जानकारी सही है।</label>
+            <button class="btn btn-primary btn-lg" type="submit">आवेदन जमा करें →</button>
+          </form>
+          <div id="av-result" aria-live="polite"></div>
+        </div>
+        <div id="av-track">
+          <span class="eyebrow">स्थिति</span>
+          <h2 class="section-title left">आवेदन की स्थिति देखें</h2>
+          <form class="card track-form" id="av-track-form">
+            <label for="av-track-input">आवेदन संख्या डालें</label>
+            <div class="input-group"><input id="av-track-input" placeholder="जैसे AV-2610-0101" autocomplete="off"><button class="btn btn-primary" type="submit">देखें</button></div>
+          </form>
+          <div id="av-track-result" aria-live="polite"></div>
+          <div class="card how reveal">
+            <h3>⏱️ आवेदन प्रक्रिया</h3>
+            <ol class="timeline static">
+              <li class="done"><strong>प्राप्त</strong><span>आपको आवेदन संख्या मिलती है</span></li>
+              <li class="done"><strong>जाँच में</strong><span>दस्तावेज़ सत्यापन / मौका निरीक्षण</span></li>
+              <li class="done"><strong>स्वीकृत</strong><span>प्रमाण पत्र / सेवा जारी</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/pages2.js"></script>
+</body>
+</html>

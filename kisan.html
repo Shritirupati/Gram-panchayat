@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू — नागौर मंडी भाव, 5 दिन का मौसम और किसान सलाह।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="kisan">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="किसान कॉर्नर" data-sub="मंडी भाव, मौसम और खेती की सलाह"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title left">आज के मंडी भाव</h2>
+          <p class="muted" id="mandi-title"></p>
+          <div class="table-wrap"><table class="table register"><thead><tr><th>फ़सल</th><th>न्यूनतम (₹/क्विं.)</th><th>अधिकतम (₹/क्विं.)</th><th>बदलाव</th></tr></thead><tbody id="mandi-body"></tbody></table></div>
+          <p class="small muted" style="margin-top:.6rem">स्रोत: कृषि उपज मंडी समिति। ताज़ा भाव के लिए <a href="https://agmarknet.gov.in/" target="_blank" rel="noopener">एगमार्कनेट ↗</a> देखें।</p>
+        </div>
+        <aside>
+          <div class="card weather reveal"><h3>🌤️ गाँव का मौसम</h3><div id="weather-now"><p class="muted">लोड हो रहा है…</p></div><div class="wx-days" id="weather-days"></div></div>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-sand">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title left">किसान सलाह</h2>
+          <ul class="check big" id="kisan-salah"></ul>
+        </div>
+        <div class="card info-card reveal">
+          <h3>📞 किसान हेल्पलाइन</h3>
+          <p>किसान कॉल सेंटर: <a href="tel:18001801551"><strong>1800-180-1551</strong></a> (निःशुल्क)</p>
+          <div class="btn-row"><a class="btn btn-outline" href="https://pmkisan.gov.in/" target="_blank" rel="noopener">पीएम किसान ↗</a><a class="btn btn-outline" href="https://pmfby.gov.in/" target="_blank" rel="noopener">फ़सल बीमा ↗</a><a class="btn btn-outline" href="https://soilhealth.dac.gov.in/" target="_blank" rel="noopener">सॉइल हेल्थ कार्ड ↗</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/pages2.js"></script>
+</body>
+</html>

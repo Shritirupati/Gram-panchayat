@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू — योजनाओं के लाभार्थियों की सूची।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="labharthi">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="लाभार्थी सूची" data-sub="किस योजना में किसे लाभ मिला — पूरी पारदर्शिता"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="stats stats-3" id="lb-stats"></div>
+        <div class="card chart-card reveal" style="margin-top:1.6rem"><h3>📊 योजना अनुसार लाभार्थी</h3><div id="lb-chart"></div></div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">लाभार्थियों की सूची</h2>
+        <div class="filters" id="lb-yojana"></div>
+        <div class="toolbar">
+          <span class="muted small" id="lb-count"></span>
+          <div class="toolbar-right">
+            <select id="lb-ward" aria-label="वार्ड"></select>
+            <label class="search sm"><span aria-hidden="true">🔍</span><input type="search" id="lb-search" placeholder="नाम खोजें…" aria-label="नाम खोजें"></label>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="table register"><thead><tr><th>क्र.</th><th>नाम</th><th>पिता / पति</th><th>वार्ड</th><th>योजना</th><th>राशि</th><th>वर्ष</th><th>स्थिति</th></tr></thead><tbody id="lb-body"></tbody></table></div>
+        <div class="callout reveal"><strong>ℹ️ आपत्ति या सुझाव?</strong> सूची में किसी नाम पर आपत्ति हो या कोई पात्र परिवार छूट गया हो तो ग्राम सभा में या पंचायत कार्यालय में लिखित आवेदन दें।</div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/pages2.js"></script>
+</body>
+</html>

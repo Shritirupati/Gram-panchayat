@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ग्राम पंचायत सांजू</title>
+  <meta name="description" content="ग्राम पंचायत सांजू — स्वास्थ्य केंद्र, टीकाकरण कैलेंडर और रक्तदाता सूची।">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="swasthya">
+  <div id="site-header"></div>
+  <section class="page-hero" data-title="स्वास्थ्य" data-sub="स्वास्थ्य केंद्र, टीकाकरण कैलेंडर और रक्तदाता सूची"></section>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="emergency reveal"><span>🚑</span><div><strong>आपातकाल में तुरंत कॉल करें</strong><p>एंबुलेंस 108 · आपातकालीन सेवा 112</p></div><a class="btn btn-primary" href="tel:108">📞 108 पर कॉल करें</a></div>
+        <div class="grid grid-3" id="hs-kendra"></div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title left">रक्तदाता सूची</h2>
+          <p class="muted">गोपनीयता के लिए नंबर नहीं दिखाए गए हैं। "संपर्क अनुरोध" दबाएँ, पंचायत तुरंत संपर्क करवाएगी।</p>
+          <div class="filters left" id="hs-groups"></div>
+          <div class="donors" id="hs-donors"></div>
+        </div>
+        <aside>
+          <div class="card events-card reveal"><h3>💉 टीकाकरण कैलेंडर</h3><ul class="events" id="hs-teeka"></ul></div>
+          <div class="card info-card reveal"><h3>👩‍⚕️ ANM भ्रमण</h3><p id="hs-anm"></p></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/pages2.js"></script>
+</body>
+</html>

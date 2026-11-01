@@ -102,20 +102,80 @@
       U.$(".modal-close", m).focus();
     }
   };
+  /* ---------- डेमो डेटाबेस (इसी ब्राउज़र में सेव) ---------- */
+  U.db = {
+    get: function (k, def) {
+      try { var v = localStorage.getItem("gp-db-" + k); return v == null ? def : JSON.parse(v); } catch (e) { return def; }
+    },
+    set: function (k, v) { localStorage.setItem("gp-db-" + k, JSON.stringify(v)); },
+    reset: function () {
+      Object.keys(localStorage).forEach(function (k) { if (k.indexOf("gp-db-") === 0 || k === "gp-meri-shikayat") localStorage.removeItem(k); });
+    }
+  };
+  U.todayISO = function () {
+    var d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  };
+  U.newId = function (prefix) {
+    var d = new Date();
+    return prefix + "-" + String(d.getFullYear()).slice(2) + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(Date.now()).slice(-4);
+  };
+  // बेस सूची + नए रिकॉर्ड + एडमिन के बदलाव
+  U.merged = function (key, base) {
+    var extra = U.db.get(key + "-new", []);
+    var ov = U.db.get(key + "-ov", {});
+    return extra.concat(base).map(function (r) {
+      return ov[r.id] ? Object.assign({}, r, ov[r.id]) : r;
+    });
+  };
+  U.updateRecord = function (key, id, changes) {
+    var extra = U.db.get(key + "-new", []);
+    var found = false;
+    extra.forEach(function (r) { if (r.id === id) { Object.assign(r, changes); found = true; } });
+    if (found) { U.db.set(key + "-new", extra); return; }
+    var ov = U.db.get(key + "-ov", {});
+    ov[id] = Object.assign(ov[id] || {}, changes);
+    U.db.set(key + "-ov", ov);
+  };
+  U.addRecord = function (key, rec) {
+    var extra = U.db.get(key + "-new", []);
+    extra.unshift(rec);
+    U.db.set(key + "-new", extra);
+  };
+  U.notices = function () {
+    return U.db.get("suchna-new", []).concat(S.suchnayen).sort(function (a, b) { return a.tarikh < b.tarikh ? 1 : -1; });
+  };
+
   window.U = U;
 
   /* ---------- नेविगेशन ---------- */
   var NAV = [
     { href: "index.html", label: "होम", id: "home" },
-    { href: "parichay.html", label: "गाँव परिचय", id: "parichay" },
-    { href: "panchayat.html", label: "पंचायत", id: "panchayat" },
-    { href: "yojana.html", label: "योजनाएँ", id: "yojana" },
-    { href: "vikas.html", label: "विकास कार्य", id: "vikas" },
-    { href: "suchna.html", label: "सूचनाएँ", id: "suchna" },
-    { label: "अधिक", id: "more", children: [
-      { href: "sevayen.html", label: "नागरिक सेवाएँ", id: "sevayen", icon: "📄" },
+    { label: "पंचायत", children: [
+      { href: "parichay.html", label: "गाँव परिचय", id: "parichay", icon: "🏡" },
+      { href: "panchayat.html", label: "हमारी पंचायत", id: "panchayat", icon: "👥" },
+      { href: "gramsabha.html", label: "ग्राम सभा व निर्णय", id: "gramsabha", icon: "🏛️" },
       { href: "bajat.html", label: "बजट व पारदर्शिता", id: "bajat", icon: "📊" },
-      { href: "gallery.html", label: "फ़ोटो गैलरी", id: "gallery", icon: "🖼️" },
+      { href: "labharthi.html", label: "लाभार्थी सूची", id: "labharthi", icon: "📋" }
+    ] },
+    { label: "सेवाएँ", children: [
+      { href: "yojana.html", label: "सरकारी योजनाएँ", id: "yojana", icon: "🏛️" },
+      { href: "aavedan.html", label: "ऑनलाइन आवेदन", id: "aavedan", icon: "🖊️" },
+      { href: "sevayen.html", label: "प्रमाण पत्र व सेवाएँ", id: "sevayen", icon: "📄" },
+      { href: "downloads.html", label: "डाउनलोड", id: "downloads", icon: "⬇️" }
+    ] },
+    { href: "vikas.html", label: "विकास कार्य", id: "vikas" },
+    { label: "जानकारी", children: [
+      { href: "suchna.html", label: "सूचना पट", id: "suchna", icon: "📢" },
+      { href: "samachar.html", label: "गाँव समाचार", id: "samachar", icon: "📰" },
+      { href: "kisan.html", label: "किसान: मंडी भाव व मौसम", id: "kisan", icon: "🌾" },
+      { href: "rozgar.html", label: "रोज़गार व प्रशिक्षण", id: "rozgar", icon: "💼" },
+      { href: "swasthya.html", label: "स्वास्थ्य", id: "swasthya", icon: "🏥" }
+    ] },
+    { label: "गाँव", children: [
+      { href: "pratibha.html", label: "गाँव की प्रतिभाएँ", id: "pratibha", icon: "🏆" },
+      { href: "matdaan.html", label: "जनमत (सर्वे)", id: "matdaan", icon: "🗳️" },
+      { href: "gallery.html", label: "फ़ोटो व वीडियो", id: "gallery", icon: "🖼️" },
       { href: "sampark.html", label: "संपर्क करें", id: "sampark", icon: "📞" }
     ] }
   ];
@@ -139,7 +199,7 @@
   var today = new Date().toLocaleDateString("hi-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 
   var header =
-    (S.demoMode ? '<div class="demo-bar">⚠️ यह वेबसाइट अभी तैयार हो रही है — यहाँ दिखाई गई कुछ जानकारी, संपर्क नंबर व आँकड़े नमूने के तौर पर हैं।</div>' : "") +
+    (S.demoMode ? '<div class="demo-bar">🧪 डेमो वेबसाइट — यहाँ दिखाई गई जानकारी, नाम, नंबर व आँकड़े नमूने के तौर पर हैं।</div>' : "") +
     '<a href="#main" class="skip-link">मुख्य सामग्री पर जाएँ</a>' +
     '<div class="topbar"><div class="container topbar-inner">' +
       '<span>📅 ' + today + '</span>' +
@@ -151,6 +211,7 @@
           '<button type="button" data-fs="0" aria-label="सामान्य आकार">अ</button>' +
           '<button type="button" data-fs="1" aria-label="अक्षर बड़े करें">अ+</button>' +
         '</span>' +
+        '<a href="admin.html" class="admin-link">🔐 लॉगिन</a>' +
       '</span>' +
     '</div></div>' +
     '<div class="tiranga" aria-hidden="true"><span></span><span></span><span></span></div>' +
@@ -174,7 +235,9 @@
           '<li><a href="shikayat.html#track">शिकायत की स्थिति देखें</a></li>' +
           '<li><a href="yojana.html">सरकारी योजनाएँ</a></li>' +
           '<li><a href="sevayen.html">प्रमाण पत्र व सेवाएँ</a></li>' +
-          '<li><a href="bajat.html">बजट व पारदर्शिता</a></li></ul></div>' +
+          '<li><a href="aavedan.html">ऑनलाइन आवेदन</a></li>' +
+          '<li><a href="bajat.html">बजट व पारदर्शिता</a></li>' +
+          '<li><a href="admin.html">🔐 पंचायत लॉगिन</a></li></ul></div>' +
         '<div><h3>उपयोगी पोर्टल</h3><ul>' + S.portal.slice(0, 5).map(function (p) {
           return '<li><a href="' + U.esc(p.link) + '" target="_blank" rel="noopener">' + U.esc(p.naam) + ' ↗</a></li>';
         }).join("") + '</ul></div>' +
