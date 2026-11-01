@@ -666,3 +666,12 @@ code { background: var(--bg-alt); padding: .05rem .4rem; border-radius: 5px; fon
   .topbar, .header, .footer, .wa-float, .to-top, .demo-bar, .ticker, .hero-actions { display: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* फ़ीचर वीडियो */
+.feature-video { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2.5rem; align-items: center; }
+.feature-video .video { width: 100%; }
+.home-video { margin-top: 1.8rem; background: var(--sand); border-radius: var(--radius); padding: 1.4rem; grid-template-columns: 1fr 1.6fr; }
+.fv-title { color: var(--green); font-size: 1.3rem; }
+.video-dur { position: absolute; top: 12px; right: 12px; background: rgba(0, 0, 0, .75); color: #fff; font-size: .8rem; font-weight: 700; padding: .1rem .5rem; border-radius: 6px; }
+.video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; background: #000; }
+@media (max-width: 760px) { .feature-video, .home-video { grid-template-columns: 1fr; gap: 1.2rem; } }

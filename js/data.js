@@ -530,11 +530,12 @@ window.SITE = {
     { tarikh: "2026-10-12", prakar: "कार्यक्रम", shirshak: "रामदेवजी मेला", vivaran: "गाँव में वार्षिक मेले का आयोजन, भजन संध्या व खेलकूद प्रतियोगिताएँ।" }
   ],
 
-  // वीडियो — youtube में YouTube वीडियो की ID डालें (जैसे youtube.com/watch?v=XXXX में XXXX)
+  // वीडियो — अपनी वीडियो फ़ाइल videos/ में रखें (file + poster),
+  // या YouTube वीडियो की ID डालें (youtube.com/watch?v=XXXX में XXXX)
   videos: [
-    { youtube: "", shirshak: "ग्राम सभा बैठक — 2 अक्टूबर 2026", tarikh: "2026-10-02" },
-    { youtube: "", shirshak: "नई सीसी सड़क का लोकार्पण", tarikh: "2026-06-25" },
-    { youtube: "", shirshak: "स्वतंत्रता दिवस समारोह", tarikh: "2026-08-15" }
+    { file: "videos/vikas.mp4", poster: "videos/vikas.jpg", youtube: "", shirshak: "सांजू विकास यात्रा — पहले और बाद", tarikh: "2026-10-30", avadhi: "0:26" },
+    { file: "videos/parichay.mp4", poster: "videos/parichay.jpg", youtube: "", shirshak: "सांजू — एक परिचय", tarikh: "2026-10-15", avadhi: "0:20" },
+    { file: "videos/jhalkiyan.mp4", poster: "videos/jhalkiyan.jpg", youtube: "", shirshak: "कार्यक्रम झलकियाँ — ग्राम सभा, स्वतंत्रता दिवस, शिविर", tarikh: "2026-10-05", avadhi: "0:20" }
   ],
 
   // जनमत / सर्वे — vote: शुरुआती वोट (डेमो)

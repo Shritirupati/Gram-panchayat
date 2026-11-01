@@ -173,24 +173,35 @@
   };
 
   /* ---------- 13. वीडियो (गैलरी पेज पर) ---------- */
-  function videos() {
-    var box = document.getElementById("video-list");
+  function videoCard(v, i) {
+    var thumb = v.poster ? '<img src="' + esc(v.poster) + '" alt="" loading="lazy">'
+      : v.youtube ? '<img src="https://i.ytimg.com/vi/' + encodeURIComponent(v.youtube) + '/hqdefault.jpg" alt="" loading="lazy">'
+      : '<div class="video-ph"></div>';
+    return '<button type="button" class="video reveal" data-vi="' + i + '">' + thumb +
+      '<span class="play" aria-hidden="true">▶</span>' + (v.avadhi ? '<span class="video-dur">' + esc(v.avadhi) + "</span>" : "") +
+      '<span class="video-cap"><strong>' + esc(v.shirshak) + "</strong><small>" + U.date(v.tarikh) + "</small></span></button>";
+  }
+  function playVideo(v) {
+    var t = '<h2 class="modal-title">' + esc(v.shirshak) + "</h2>";
+    if (v.file) U.modal(t + '<div class="video-frame"><video src="' + esc(v.file) + '"' + (v.poster ? ' poster="' + esc(v.poster) + '"' : "") + ' controls autoplay playsinline></video></div>');
+    else if (v.youtube) U.modal(t + '<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(v.youtube) +
+      '?autoplay=1" title="' + esc(v.shirshak) + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>');
+    else U.modal(t + "<p>🎬 यह वीडियो जल्द ही जोड़ा जाएगा।</p>");
+  }
+  function videos(boxId, list) {
+    var box = document.getElementById(boxId);
     if (!box) return;
-    box.innerHTML = S.videos.map(function (v) {
-      var thumb = v.youtube ? '<img src="https://i.ytimg.com/vi/' + encodeURIComponent(v.youtube) + '/hqdefault.jpg" alt="" loading="lazy">' : '<div class="video-ph"></div>';
-      return '<button type="button" class="video reveal" data-yt="' + esc(v.youtube) + '" data-title="' + esc(v.shirshak) + '">' + thumb +
-        '<span class="play" aria-hidden="true">▶</span><span class="video-cap"><strong>' + esc(v.shirshak) + "</strong><small>" + U.date(v.tarikh) + "</small></span></button>";
-    }).join("");
+    box.innerHTML = list.map(function (v) { return videoCard(v, S.videos.indexOf(v)); }).join("");
     box.addEventListener("click", function (e) {
       var b = e.target.closest(".video");
-      if (!b) return;
-      var id = b.getAttribute("data-yt");
-      U.modal(id
-        ? '<h2 class="modal-title">' + esc(b.getAttribute("data-title")) + '</h2><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
-          '?autoplay=1" title="' + esc(b.getAttribute("data-title")) + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>'
-        : '<h2 class="modal-title">' + esc(b.getAttribute("data-title")) + '</h2><p>🎬 यह वीडियो जल्द ही जोड़ा जाएगा।</p><p class="small muted">(data.js में videos के अंदर YouTube वीडियो की ID डालें।)</p>');
+      if (b) playVideo(S.videos[Number(b.getAttribute("data-vi"))]);
     });
   }
+  // मोडल बंद होने पर वीडियो रोकें
+  document.addEventListener("click", function (e) {
+    if (e.target.closest(".modal-close") || e.target.id === "modal") $$("#modal video").forEach(function (v) { v.pause(); });
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") $$("#modal video").forEach(function (v) { v.pause(); }); });
 
   /* ---------- 14. जनमत / सर्वे ---------- */
   P.matdaan = function () {
@@ -389,7 +400,8 @@
     show();
   };
 
-  if (page === "gallery") videos();
+  if (page === "gallery") videos("video-list", S.videos);
+  if (page === "vikas" || page === "home") videos("featured-video", S.videos.slice(0, 1));
   if (P[page]) P[page]();
   window.revealAll();
 })();
