@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe0f5"/><stop offset="1" stop-color="#eef7fc"/></linearGradient></defs>
+<rect width="800" height="500" fill="url(#s)"/><rect y="380" width="800" height="120" fill="#cdb98f"/>
+<rect x="396" y="90" width="8" height="300" fill="#777"/><circle cx="400" cy="86" r="8" fill="#e8b84a"/>
+<path d="M404 100h150v32H404z" fill="#ff9933"/><path d="M404 132h150v32H404z" fill="#fff"/><path d="M404 164h150v32H404z" fill="#138808"/><circle cx="479" cy="148" r="12" fill="none" stroke="#000080" stroke-width="2.5"/>
+<rect x="350" y="380" width="100" height="20" fill="#e6dccb"/><rect x="330" y="400" width="140" height="20" fill="#d8ccb6"/>
+<g fill="#ff9933"><circle cx="120" cy="120" r="6"/><circle cx="680" cy="90" r="6"/><circle cx="220" cy="70" r="5"/></g><g fill="#138808"><circle cx="160" cy="80" r="6"/><circle cx="640" cy="140" r="6"/><circle cx="600" cy="60" r="5"/></g>
+<g fill="#0b5d3b"><circle cx="150" cy="420" r="13"/><circle cx="200" cy="420" r="13"/><circle cx="250" cy="420" r="13"/><circle cx="550" cy="420" r="13"/><circle cx="600" cy="420" r="13"/><circle cx="650" cy="420" r="13"/></g>
+<g fill="#fff"><rect x="136" y="434" width="28" height="40" rx="8"/><rect x="186" y="434" width="28" height="40" rx="8"/><rect x="236" y="434" width="28" height="40" rx="8"/><rect x="536" y="434" width="28" height="40" rx="8"/><rect x="586" y="434" width="28" height="40" rx="8"/><rect x="636" y="434" width="28" height="40" rx="8"/></g>
+<text x="400" y="50" font-family="sans-serif" font-size="28" text-anchor="middle" fill="#0b5d3b" font-weight="bold">स्वतंत्रता दिवस</text></svg>

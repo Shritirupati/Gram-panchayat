@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#eef4f1"/><rect y="360" width="800" height="140" fill="#d9cdb6"/>
+<path d="M140 150 400 70 660 150v40H140z" fill="#fff"/><path d="M140 150 400 70 660 150" fill="none" stroke="#c62828" stroke-width="8"/>
+<rect x="160" y="190" width="10" height="170" fill="#888"/><rect x="630" y="190" width="10" height="170" fill="#888"/>
+<rect x="330" y="96" width="140" height="46" rx="8" fill="#c62828"/><path d="M392 104h16v12h12v16h-12v12h-16v-12h-12v-16h12z" fill="#fff"/>
+<rect x="250" y="270" width="300" height="20" fill="#7a4a22"/><rect x="262" y="290" width="8" height="70" fill="#7a4a22"/><rect x="530" y="290" width="8" height="70" fill="#7a4a22"/>
+<g><circle cx="330" cy="225" r="16" fill="#7a4a22"/><rect x="312" y="242" width="36" height="30" rx="8" fill="#fff" stroke="#9fb3a8"/><rect x="326" y="246" width="8" height="18" fill="#2563eb"/></g>
+<g><circle cx="470" cy="225" r="16" fill="#7a4a22"/><rect x="452" y="242" width="36" height="30" rx="8" fill="#fff" stroke="#9fb3a8"/></g>
+<g fill="#7a4a22"><circle cx="120" cy="380" r="13"/><circle cx="680" cy="380" r="13"/><circle cx="720" cy="390" r="12"/></g><g fill="#e8891d"><rect x="106" y="394" width="28" height="40" rx="8"/><rect x="666" y="394" width="28" height="40" rx="8"/></g><rect x="707" y="403" width="26" height="36" rx="8" fill="#c62828"/>
+<text x="400" y="460" font-family="sans-serif" font-size="28" text-anchor="middle" fill="#8a1c2b" font-weight="bold">निःशुल्क स्वास्थ्य शिविर</text></svg>

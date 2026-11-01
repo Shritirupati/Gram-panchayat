@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#f4ead8"/><rect width="800" height="190" fill="#cfe6f3"/>
+<rect x="250" y="70" width="300" height="130" fill="#efe3cf"/><rect x="240" y="60" width="320" height="16" fill="#c96f0c"/><text x="400" y="120" font-family="sans-serif" font-size="24" text-anchor="middle" fill="#0b5d3b" font-weight="bold">ग्राम पंचायत भवन</text>
+<rect x="300" y="200" width="200" height="40" fill="#8a1c2b"/><rect x="320" y="185" width="160" height="18" fill="#fff3e0"/>
+<g fill="#0b5d3b"><circle cx="345" cy="175" r="10"/><circle cx="400" cy="172" r="11"/><circle cx="455" cy="175" r="10"/></g>
+<g id="row"><g fill="#7a4a22"><circle cx="80" cy="300" r="14"/><circle cx="140" cy="300" r="14"/><circle cx="200" cy="300" r="14"/><circle cx="260" cy="300" r="14"/><circle cx="320" cy="300" r="14"/><circle cx="380" cy="300" r="14"/><circle cx="440" cy="300" r="14"/><circle cx="500" cy="300" r="14"/><circle cx="560" cy="300" r="14"/><circle cx="620" cy="300" r="14"/><circle cx="680" cy="300" r="14"/><circle cx="740" cy="300" r="14"/></g>
+<g fill="#e8891d"><rect x="64" y="314" width="32" height="34" rx="10"/><rect x="184" y="314" width="32" height="34" rx="10"/><rect x="304" y="314" width="32" height="34" rx="10"/><rect x="424" y="314" width="32" height="34" rx="10"/><rect x="544" y="314" width="32" height="34" rx="10"/><rect x="664" y="314" width="32" height="34" rx="10"/></g>
+<g fill="#c62828"><rect x="124" y="314" width="32" height="34" rx="10"/><rect x="244" y="314" width="32" height="34" rx="10"/><rect x="364" y="314" width="32" height="34" rx="10"/><rect x="484" y="314" width="32" height="34" rx="10"/><rect x="604" y="314" width="32" height="34" rx="10"/><rect x="724" y="314" width="32" height="34" rx="10"/></g></g>
+<use href="#row" transform="translate(30 80)"/><use href="#row" transform="translate(0 160)"/>
+</svg>
